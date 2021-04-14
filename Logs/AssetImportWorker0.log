@@ -1,0 +1,21 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.3f1 (76626098c1c4) revision 7758432'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Pro; OS build 19041.867; Version 2004; 64bit' Language: 'en' Physical Memory: 8134 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2020.3.3f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+D:/NonogramProject
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+55579
+Successfully changed project path to: D:/NonogramProject
+D:/NonogramProject
+Using Asset Import Pipeline V2.
