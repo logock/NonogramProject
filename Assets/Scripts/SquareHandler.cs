@@ -10,6 +10,8 @@ public class SquareHandler : MonoBehaviour
     bool pressedLeft = false;
     bool isCrossed = false;
 
+    bool colorChanged = false; // Check to avoid multiple colour changes in one "swoop"
+
     public int state; // STATES: 1: WHITE  2: BLACK    3: CROSSED  ***NOT IMPLEMENTED***
     // Start is called before the first frame update
     void Start()
@@ -36,6 +38,7 @@ public class SquareHandler : MonoBehaviour
         else
         {
             pressedLeft = false;
+            colorChanged = false;
         }
     }
 
@@ -43,23 +46,29 @@ public class SquareHandler : MonoBehaviour
 
     void OnMouseEnter()
     {
-        if (pressedLeft == true && ctrlHeld == false)
+        if (colorChanged == false)
         {
-            ChangeColor();
-        }
-        else if (pressedLeft == true && ctrlHeld == true)
-        {
-            if (isCrossed == false)
+            if (pressedLeft == true && ctrlHeld == false)
             {
-                spriteRenderer.color = Color.white;
-                cross.SetActive(true);
-                isCrossed = true;
+                ChangeColor();
+                colorChanged = true;
             }
-            else
+            else if (pressedLeft == true && ctrlHeld == true)
             {
-                spriteRenderer.color = Color.white;
-                cross.SetActive(false);
-                isCrossed = false;
+                if (isCrossed == false)
+                {
+                    spriteRenderer.color = Color.white;
+                    cross.SetActive(true);
+                    isCrossed = true;
+                    colorChanged = true;
+                }
+                else
+                {
+                    spriteRenderer.color = Color.white;
+                    cross.SetActive(false);
+                    isCrossed = false;
+                    colorChanged = true;
+                }
             }
         }
     }
@@ -73,20 +82,22 @@ public class SquareHandler : MonoBehaviour
                 spriteRenderer.color = Color.white;
                 cross.SetActive(true);
                 isCrossed = true;
+                colorChanged = true;
             }
             else
             {
                 spriteRenderer.color = Color.white;
                 cross.SetActive(false);
                 isCrossed = false;
+                colorChanged = true;
             }
         }
         else
         {
             ChangeColor();
+            colorChanged = true;
         }
     }
-
     void ChangeColor()
     {
         if (spriteRenderer.color == Color.white)
