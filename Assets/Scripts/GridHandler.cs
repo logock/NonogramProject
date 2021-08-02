@@ -51,20 +51,22 @@ public class GridHandler : MonoBehaviour
     void Update()
     {
         // Check if left mouse button is being clicked/held
-        if (Input.GetMouseButton(0) == true)
+        if (Input.GetMouseButton(0) == true && Input.GetMouseButton(1) == false)
         {
             leftClicked = true;
-        }
-        else
-        {
-            leftClicked = false;
-            colourBeingChanged = false;
         }
 
         // Don't want to deal with bugs when people hold both mouse buttons, so right click only works when you aren't left clicking, might rework later
         if (Input.GetMouseButton(0) == false && Input.GetMouseButton(1) == true)
         {
             rightClicked = true;
+        }
+
+        if (Input.GetMouseButton(0) == false && Input.GetMouseButton(1) == false)
+        {
+            leftClicked = false;
+            rightClicked = false;
+            colourBeingChanged = false;
         }
     }
 }
