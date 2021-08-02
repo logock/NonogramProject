@@ -94,14 +94,14 @@ public class SquareHandler : MonoBehaviour
         }
         else    // Change to another colour otherwise; take colour from grid's state dictionary and notify grid which colour we are changing to
         {
-            if (toState == -1)
+            if (toState == -1)  // Crossing out (state/colour: -1) makes the colour go white and enables our cross object
             {
                 spriteRenderer.color = grid.states[0];
                 cross.SetActive(true);
             }
             else
             {
-                if (state == -1)
+                if (state == -1) // if our state was -1 (crossed), then we want to disable the cross before changing to another colour
                 {
                     cross.SetActive(false);
                 }
