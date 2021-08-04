@@ -28,6 +28,8 @@ public class GridHandler : MonoBehaviour
         // Add states/colours manually atm, will be generated per level in the future
         states.Add(0, Color.white);
         states.Add(1, Color.black);
+        states.Add(2, Color.red);
+        states.Add(3, Color.green);
 
         // Get the squarehandler script from our square prefab and give it our grid
         squareHandler = square.GetComponent<SquareHandler>();
@@ -68,5 +70,19 @@ public class GridHandler : MonoBehaviour
             rightClicked = false;
             colourBeingChanged = false;
         }
+        for (int i = 1; i < states.Count; i++)
+        {
+            if (Input.GetKeyDown((KeyCode)(48 + i)))
+            {
+                ChangeSelectedState(i);
+            }
+        }
+
+    }
+
+    public void ChangeSelectedState(int toState)
+    {
+        selectedState = toState;
+        Debug.Log("Selected state: " + selectedState);
     }
 }
