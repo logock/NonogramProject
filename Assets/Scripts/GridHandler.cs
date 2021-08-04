@@ -83,6 +83,5 @@ public class GridHandler : MonoBehaviour
     public void ChangeSelectedState(int toState)
     {
         selectedState = toState;
-        Debug.Log("Selected state: " + selectedState);
     }
 }

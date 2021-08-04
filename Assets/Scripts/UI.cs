@@ -42,7 +42,6 @@ public class UI : MonoBehaviour
             newButton.image.color = gridHandler.states[myI];
             newButton.onClick.AddListener(() => { gridHandler.ChangeSelectedState(myI); });
             buttons.Add(newButton);
-            Debug.Log("Created button: i is at: " + myI);
         }
     }
 
